@@ -1,20 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import {View, Text} from 'react-native';
+import Home from './components/Home';
+import Details from './components/Details';
+import Profile from './components/Profile';
+import Recommended from './components/Recommended';
 
-export default function App() {
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack'
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+const TabNavigator = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <Tab.Navigator>
+      <Tab.Screen name = "Home" component = {Home}/>
+      <Tab.Screen name = "Recommended" component = {Recommended}/>
+      <Tab.Screen name = "Profile" component = {Profile}/>
+    </Tab.Navigator>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const App = () => {
+    return(
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name = "TabNavigator" component = {TabNavigator} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    )
+}
+
+export default App;
