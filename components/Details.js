@@ -3,6 +3,7 @@ import {View, Text, StyleSheet, Dimensions, ImageBackground} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import colors from '../assets/colors/colors';
 import Entypo from 'react-native-vector-icons/Entypo';
+import YoutubePlayer from 'react-native-youtube-iframe';
 
 const height = Dimensions.get("window").height;
 
@@ -57,9 +58,19 @@ const Details = ({route, navigation}) => {
                     </View>
                 </View>
 
-                <TouchableOpacity style={styles.buttonWrapper}>
-                    <Text style={styles.buttonText}>View Workout</Text>
-                </TouchableOpacity>
+                <View style={styles.videoWrapper}>
+                    <YoutubePlayer 
+                    height={300}
+                    play={true}
+                    videoId={item.video}
+                    />
+                </View>
+
+                <View style={styles.goodbyeTextWrapper}>
+                    <Text style={styles.goodbyeText}>Enjoy your Workout!</Text>
+                </View>
+
+                
 
             </View>
         </View>
@@ -72,7 +83,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
     },
     backgroundImage: {
-        height: height * 0.6,
+        height: height * 0.3,
         justifyContent:'space-between',
     },
     descriptionWrapper: {
@@ -180,6 +191,17 @@ const styles = StyleSheet.create({
         fontFamily: 'Lato-Bold',
         fontSize: 18,
         color: colors.white,
+    },
+    videoWrapper: {
+        marginTop: 40,
+    },
+    goodbyeText: {
+        fontSize: 20,
+        color: colors.blue,
+    },
+    goodbyeTextWrapper: {
+        marginTop: -30,
+        alignItems: 'center',
     }
 })
 
