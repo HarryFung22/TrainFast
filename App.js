@@ -29,13 +29,13 @@ const TabNavigator = () => {
     }}
     >
       <Tab.Screen name = "Home" component = {Home} options = {{
-        tabBarIcon: ({color}) => (<Entypo name='home' size= {32} color={color} />),
+        tabBarIcon: ({color}) => (<Entypo name='home' size= {32} color={color} />), headerShown: false
       }}/>
       <Tab.Screen name = "Recommended" component = {Recommended} options ={{
-        tabBarIcon: ({color}) => (<Entypo name='heart' size= {32} color={color} />),
+        tabBarIcon: ({color}) => (<Entypo name='heart' size= {32} color={color} />), headerShown: false
       }}/>
       <Tab.Screen name = "Profile" component = {Profile} options ={{
-        tabBarIcon: ({color}) => (<MaterialCommunityIcons name='account' size= {32} color={color} />),
+        tabBarIcon: ({color}) => (<MaterialCommunityIcons name='account' size= {32} color={color} />), headerShown: false
       }}/>
     </Tab.Navigator>
   )
